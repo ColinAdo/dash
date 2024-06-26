@@ -12,13 +12,18 @@ import {
   ChevronRight,
   X,
 } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useWindowWidth } from "@react-hook/window-size";
 
 const Sidebar = () => {
   const [isCollapsed, setIsCollapsed] = useState(false);
+  const [mobilewidth, setMobileWidth] = useState(false);
   const onlyWidth = useWindowWidth();
-  const mobilewidth = onlyWidth < 768;
+
+  useEffect(() => {
+    // Update mobilewidth state when window width changes
+    setMobileWidth(onlyWidth < 768);
+  }, [onlyWidth]);
 
   function toggleSidebar() {
     setIsCollapsed(!isCollapsed);
@@ -26,12 +31,11 @@ const Sidebar = () => {
 
   return (
     <div className="relative min-w-[80px] border-r px-3 pt-20 pb-10">
-      {/* width-{onlyWidth} */}
       {!mobilewidth && (
-        <div className="absolute  top-7">
+        <div className="absolute top-7">
           <Button
             onClick={toggleSidebar}
-            className="bg-white text-black hover:bg-slate-300 "
+            className="bg-white text-black hover:bg-slate-300"
           >
             <ChevronRight />
           </Button>
