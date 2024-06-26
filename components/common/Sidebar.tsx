@@ -46,7 +46,7 @@ const Sidebar = () => {
         links={[
           {
             title: "Dashboard",
-            label: "128",
+            // label: "128",
             icon: LayoutDashboard,
             variant: "default",
             href: "/",
