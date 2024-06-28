@@ -1,5 +1,9 @@
-import Image from "next/image";
+import PageTitle from "@/components/PageTitile";
 
 export default function Home() {
-  return <div>Home page</div>;
+  return (
+    <div className="flex flex-col gap-5 w-full">
+      <PageTitle title="Dasboard" />
+    </div>
+  );
 }
