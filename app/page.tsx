@@ -3,6 +3,7 @@ import PageTitle from "@/components/PageTitile";
 import { Activity, CreditCard, DollarSign, Users } from "lucide-react";
 import { CardContent } from "@/components/Card";
 import Chart from "@/components/Chart";
+import SalesCard, { SalesProps } from "@/components/SalesCard";
 
 const CardData: CardProps[] = [
   {
@@ -31,6 +32,39 @@ const CardData: CardProps[] = [
   },
 ];
 
+const SalesData: SalesProps[] = [
+  {
+    name: "Annie",
+    email: "annie@gmail.com",
+    saleAmount: "+567,000.00",
+  },
+  {
+    name: "Maggie",
+    email: "maggie@gmail.com",
+    saleAmount: "-100,000.00",
+  },
+  {
+    name: "George",
+    email: "george@gmail.com",
+    saleAmount: "+450,000.00",
+  },
+  {
+    name: "Coco",
+    email: "coco@gmail.com",
+    saleAmount: "+900,000.00",
+  },
+  {
+    name: "Boo",
+    email: "boo@gmail.com",
+    saleAmount: "-50,000.00",
+  },
+  {
+    name: "Sasha",
+    email: "sasha@gmail.com",
+    saleAmount: "+370,000.00",
+  },
+];
+
 export default function Home() {
   return (
     <div className="flex flex-col gap-5 w-full">
@@ -51,6 +85,22 @@ export default function Home() {
         <CardContent>
           <p className="p-4 font-semibold">Overview</p>
           <Chart />
+        </CardContent>
+        <CardContent>
+          <section>
+            <p className="font-semibold">Sales</p>
+            <p className="text-gray-500 text-sm">
+              You have made about 567 sales this month
+            </p>
+            {SalesData.map((d, i) => (
+              <SalesCard
+                key={i}
+                name={d.name}
+                email={d.email}
+                saleAmount={d.saleAmount}
+              />
+            ))}
+          </section>
         </CardContent>
       </section>
     </div>
