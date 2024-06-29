@@ -1,6 +1,8 @@
 import Card, { CardProps } from "@/components/Card";
 import PageTitle from "@/components/PageTitile";
 import { Activity, CreditCard, DollarSign, Users } from "lucide-react";
+import { CardContent } from "@/components/Card";
+import Chart from "@/components/Chart";
 
 const CardData: CardProps[] = [
   {
@@ -43,6 +45,13 @@ export default function Home() {
             description={d.description}
           />
         ))}
+      </section>
+
+      <section className="grid grid-cols-1 gap-4 lg:grid-cols-2 transition-all">
+        <CardContent>
+          <p className="p-4 font-semibold">Overview</p>
+          <Chart />
+        </CardContent>
       </section>
     </div>
   );
